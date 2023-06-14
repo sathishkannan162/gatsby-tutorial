@@ -4,8 +4,6 @@ import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 
 const BlogPage = ({ data, ...props }) => {
-  console.log({props: props})
-  console.log({ data: data });
   return (
     <Layout pageTitle="My Blog Posts">
       <ul>
@@ -25,22 +23,6 @@ const BlogPage = ({ data, ...props }) => {
   );
 };
 
-// export const query = graphql`
-// query {
-//   allMdx(sort: {frontmatter: {date: DESC}}) {
-//     nodes {
-//       frontmatter {
-//         title
-//         slug
-//         date(formatString: "MMMM DD, YYYY")
-//       }
-//       id
-//       excerpt
-//     }
-//   }
-// }
-// `;
-
 export const query = graphql`
   query {
     allMdx {
@@ -48,9 +30,10 @@ export const query = graphql`
         frontmatter {
           title
           slug
-          date
+          date(formatString: "MMMM DD, YYYY")
         }
         id
+        excerpt
       }
     }
   }
