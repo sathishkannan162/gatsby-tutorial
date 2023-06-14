@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 const Seo = ({ title }) => {
   const siteData = useStaticQuery(graphql`
-    query MyQuery {
+    query {
       site {
         siteMetadata {
           title
@@ -13,7 +13,7 @@ const Seo = ({ title }) => {
   `);
   return (
     <title>
-      {title} {/* | {siteData.site.siteMetadata.title} */}
+      {title}  | {siteData.site.siteMetadata.title} 
     </title>
   );
 };
